@@ -21,11 +21,18 @@
 
   <main class="flex-grow">
     <!-- Hero Section -->
-    <section class="py-16 bg-white">
-      <div class="container mx-auto px-4 text-center">
-        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Conferences on Topological Data Analysis: Recent Developments and Applications</h1>
-        <p class="text-xl text-gray-600 mb-8">November 22-24, 2025 • University of Missouri-Columbia</p>
-        <a href="register.html" class="inline-block bg-gray-800 hover:bg-gray-700 text-white font-medium py-2 px-6 rounded-md transition-colors">Register Now</a>
+    <section class="relative py-24 bg-white">
+      <!-- Background image with overlay -->
+      <div class="absolute inset-0 z-0">
+        <img src="quad-columns.png" alt="University of Missouri-Columbia" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gray-900 opacity-60"></div>
+      </div>
+      
+      <!-- Content with higher z-index to appear above the background -->
+      <div class="container mx-auto px-4 text-center relative z-10">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-white">Conferences on Topological Data Analysis: Recent Developments and Applications</h1>
+        <p class="text-xl text-gray-100 mb-8">November 22-24, 2025 • University of Missouri-Columbia</p>
+        <a href="register.html" class="inline-block bg-gray-800 hover:bg-gray-700 text-white font-medium py-2 px-6 rounded-md transition-colors border border-gray-100">Register Now</a>
       </div>
     </section>
 
