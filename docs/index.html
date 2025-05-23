@@ -7,11 +7,11 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="min-h-screen flex flex-col bg-gray-800 text-gray-200">
+<body class="min-h-screen flex flex-col bg-gray-50">
   <!-- Header/Nav -->
   <header class="header">
     <div class="container-width flex items-center justify-between p-4">
-      <a href="index.html" class="text-2xl font-bold">TDA Conference 2025</a>
+      <a href="index.html" class="text-2xl font-bold">Conferences on Topological Data Analysis: Recent Developments and Applications</a>
       <nav class="space-x-6">
         <a href="speakers.html" class="nav-link">Speakers</a>
         <a href="schedule.html" class="nav-link">Schedule</a>
@@ -22,7 +22,7 @@
 
   <main class="flex-grow">
     <!-- Hero Section -->
-    <section class="py-16 bg-gray-900">
+    <section class="py-16 bg-white">
       <div class="container-width text-center">
         <h1 class="title">TDA Conference 2025</h1>
         <p class="subtitle">November 22-24, 2025 • University of Missouri-Columbia</p>
@@ -30,23 +30,32 @@
       </div>
     </section>
 
-    <!-- Themes Section -->
-    <section class="section-padding bg-gray-800">
+    <!-- About Section -->
+    <section class="section-padding bg-gray-50">
       <div class="container-width max-w-3xl">
-        <h2 class="section-title">Conference Themes</h2>
-        <ul class="list-item">
-          <li>Multiparameter persistence</li>
-          <li>Spectral methods in TDA</li>
-          <li>Machine Learning &amp; TDA</li>
-        </ul>
+        <p class="content-text">
+          The TDA Conference 2025 brings together researchers 
+          in Topological Data Analysis to discuss recent developments and applications in the field.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-8 mb-8">
+          <div>
+            <h2 class="section-title">Conference Themes</h2>
+            <ul class="list-item">
+              <li>• Multiparameter persistence</li>
+              <li>• Spectral methods in TDA</li>
+              <li>• Machine Learning & TDA</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="container-width p-6 text-center">
-      <p>&copy; 2025 TDA Conference</p>
-      <p>Contact: <a href="mailto:info@tdaconf.org" class="text-teal-300 hover:underline">info@tdaconf.org</a></p>
+      <p class="mb-2">&copy; 2025 TDA Conference</p>
+      <p>Contact: <a href="mailto:info@tdaconf.org" class="text-gray-800 hover:underline">info@tdaconf.org</a></p>
     </div>
   </footer>
 </body>
