@@ -5,41 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Speakers — TDA Conference 2025</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col bg-gray-50">
   <!-- Header/Nav -->
-  <header class="bg-blue-800 text-white">
-    <div class="container mx-auto flex items-center justify-between p-4">
-      <a href="index.html" class="text-2xl font-bold">TDA Conference 2025</a>
-      <nav class="space-x-4">
-        <a href="index.html" class="hover:text-blue-300">Home</a>
-        <a href="about.html" class="hover:text-blue-300">About</a>
-        <a href="schedule.html" class="hover:text-blue-300">Schedule</a>
-        <a href="register.html" class="hover:text-blue-300">Register</a>
+  <header class="header">
+    <div class="container-width flex items-center justify-between p-4">
+      <a href="index.html" class="text-2xl font-bold">Conferences on Topological Data Analysis: Recent Developments and Applications</a>
+      <nav class="space-x-6">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="schedule.html" class="nav-link">Schedule</a>
+        <a href="register.html" class="nav-link">Register</a>
       </nav>
     </div>
   </header>
 
   <!-- Speakers Section -->
-  <main class="flex-grow container mx-auto p-8">
-    <h2 class="text-3xl font-bold mb-6">Keynote Speakers</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <!-- Speaker 1 -->
-      <div class="bg-white rounded shadow p-6 text-center">
-        <img src="assets/speaker1.jpg" alt="Speaker 1" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover">
-        <h3 class="text-xl font-semibold mb-2">Dr. Jane Doe</h3>
-        <p class="text-gray-700 mb-2">"Recent Advances in Persistent Homology"</p>
-        <p class="text-gray-600">University X</p>
-      </div>
-      <!-- Add more speakers similarly -->
+  <main class="flex-grow section-padding">
+    <div class="container-width max-w-3xl">
+      <h1 class="section-title">Invited Speakers</h1>
+      <ul class="space-y-8">
+        <li class="border-b border-gray-200 pb-6">
+          <h3 class="text-xl font-semibold text-gray-800">Speaker 1</h3>
+          <p class="text-gray-600">Institution</p>
+          <p class="text-gray-700 mt-2">Talk title will be announced</p>
+        </li>
+        <li class="border-b border-gray-200 pb-6">
+          <h3 class="text-xl font-semibold text-gray-800">Speaker 2</h3>
+          <p class="text-gray-600">Institution</p>
+          <p class="text-gray-700 mt-2">Talk title will be announced</p>
+        </li>
+      </ul>
     </div>
   </main>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 text-gray-300">
+  <footer class="footer">
     <div class="container mx-auto p-6 text-center">
-      <p>&copy; 2025 TDA Conference. All rights reserved.</p>
-      <p>Contact: <a href="mailto:info@tdaconf.org" class="text-blue-400 hover:underline">info@tdaconf.org</a></p>
+      <p class="mb-2">&copy; 2025 TDA Conference</p>
+      <p>Contact: <a href="mailto:info@tdaconf.org" class="text-gray-800 hover:underline">info@tdaconf.org</a></p>
     </div>
   </footer>
 </body>
