@@ -5,19 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TDA Conference 2025</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/components.js"></script>
+  <script src="js/nav-active.js"></script>
 </head>
 <body class="min-h-screen flex flex-col bg-gray-50">
-  <!-- Header/Nav -->
-  <header class="bg-gray-100 text-gray-800 border-b border-gray-200">
-    <div class="container mx-auto flex items-center justify-between p-4">
-      <a href="index.html" class="text-2xl font-bold flex items-center">TDA Conference 2025 @ <img src="University-of-Missouri-Logo.png" alt="Mizzou" class="h-10 ml-2"></a>
-      <nav class="space-x-6">
-        <a href="speakers.html" class="hover:text-gray-600">Speakers</a>
-        <a href="schedule.html" class="hover:text-gray-600">Schedule</a>
-        <a href="register.html" class="hover:text-gray-600">Register</a>
-      </nav>
-    </div>
-  </header>
+  <div data-component="header"></div>
 
   <main class="flex-grow">
     <!-- Hero Section -->
@@ -48,15 +40,20 @@
           A central goal is to train the next generation of TDA researchers by providing a venue to present work, receive feedback, and build collaborations. TDA is evolving rapidly across theory, algorithms, and real-world applications, and our program balances cutting-edge theory with demonstrations of impact in fields ranging from machine learning to biology and network science.
         </p>
         
+        <h2 class="text-xl font-semibold mt-8 mb-2 text-gray-900">Conference Themes</h2>
+        <ul class="space-y-2 text-gray-700 mb-6">
+          <li>• Multiparameter persistence</li>
+          <li>• Spectral methods in TDA</li>
+          <li>• Möbius Inversion techniques in TDA</li>
+          <li>• Applications in Machine Learning, Network analysis etc</li>
+        </ul>
+        
         <h2 class="text-xl font-semibold mt-8 mb-2 text-gray-900">Organizers</h2>
         <p class="text-gray-700 mb-6">
           <span class="font-medium">Zhengchao Wan</span> and <span class="font-medium">Calin Chindris</span>, University of Missouri-Columbia
         </p>
 
-        <h2 class="text-xl font-semibold mt-8 mb-2 text-gray-900">Registration Fee</h2>
-        <p class="text-gray-700 mb-6">
-          Attendees offered an in-person attendance slot will be asked to pay a $25 non-refundable registration fee within 10 days of notification of acceptance.
-        </p>
+        <!-- Registration Fee information moved to register.html -->
 
         <h2 class="text-xl font-semibold mt-8 mb-2 text-gray-900">Poster Session</h2>
         <p class="text-gray-700 mb-4">
@@ -66,17 +63,9 @@
           In order to propose a poster, you must first register for the conference, and then submit a proposal using the form that will become available on this page after you register. The registration form should not be used for proposals.
         </p>
 
-        <div class="grid md:grid-cols-2 gap-8 mb-8">
+        <!-- Grid section removed as Conference Themes was moved up -->
+        <!-- <div class="grid md:grid-cols-2 gap-8 mb-8">
           <div>
-            <h2 class="text-xl font-semibold mb-4 text-gray-900">Conference Themes</h2>
-            <ul class="space-y-2 text-gray-700">
-              <li>• Multiparameter persistence</li>
-              <li>• Spectral methods in TDA</li>
-              <li>• Möbius Inversion techniques in TDA</li>
-              <li>• Applications in Machine Learning, Network analysis etc</li>
-            </ul>
-          </div>
-          <!-- <div>
             <h2 class="text-xl font-semibold mb-4 text-gray-900">Important Dates</h2>
             <ul class="space-y-2 text-gray-700">
               <li>• Abstract Due: March 1, 2025</li>
@@ -84,18 +73,12 @@
               <li>• Early Registration: May 1, 2025</li>
               <li>• Conference: June 15–18, 2025</li>
             </ul>
-          </div> -->
-        </div>
+          </div>
+        </div> -->
       </div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-gray-100 text-gray-600 border-t border-gray-200">
-    <div class="container mx-auto p-6 text-center">
-      <p class="mb-2">&copy; 2025 TDA Conference</p>
-      <p>Contact: <a href="mailto:zwan@missouri.edu" class="text-gray-800 hover:underline">zwan@missouri.edu</a></p>
-    </div>
-  </footer>
+  <div data-component="footer"></div>
 </body>
 </html>

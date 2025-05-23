@@ -5,19 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Speakers — TDA Conference 2025</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/components.js"></script>
+  <script src="js/nav-active.js"></script>
 </head>
 <body class="min-h-screen flex flex-col bg-gray-50">
-  <!-- Header/Nav -->
-  <header class="bg-gray-100 text-gray-800 border-b border-gray-200">
-    <div class="container mx-auto flex items-center justify-between p-4">
-      <a href="index.html" class="text-2xl font-bold flex items-center">TDA Conference 2025 @ <img src="University-of-Missouri-Logo.png" alt="Mizzou" class="h-10 ml-2"></a>
-      <nav class="space-x-6">
-        <a href="index.html" class="hover:text-gray-600">Home</a>
-        <a href="schedule.html" class="hover:text-gray-600">Schedule</a>
-        <a href="register.html" class="hover:text-gray-600">Register</a>
-      </nav>
-    </div>
-  </header>
+  <div data-component="header"></div>
 
   <!-- Speakers Section -->
   <main class="flex-grow">
@@ -86,12 +78,6 @@
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-gray-100 text-gray-600 border-t border-gray-200">
-    <div class="container mx-auto p-6 text-center">
-      <p class="mb-2">&copy; 2025 TDA Conference</p>
-      <p>Contact: <a href="mailto:zwan@missouri.edu" class="text-gray-800 hover:underline">zwan@missouri.edu</a></p>
-    </div>
-  </footer>
+  <div data-component="footer"></div>
 </body>
 </html>
