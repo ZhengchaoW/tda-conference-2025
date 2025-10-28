@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Location & Directions — TDA Conference 2025</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="js/components.js"></script>
+  <script src="js/nav-active.js"></script>
+  <style>
+    .map-embed{width:100%;height:460px;border:0}
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-gray-50">
+  <div data-component="header"></div>
+
+  <main class="flex-grow">
+    <section class="py-12 bg-gray-50">
+      <div class="container mx-auto px-4 max-w-5xl">
+        <h1 class="text-3xl font-bold mb-6 text-gray-900">Getting to the Venue</h1>
+        <p class="text-gray-700 mb-8">Most invited speakers will stay at the Hampton Inn near campus. The venue is Strickland Hall on the University of Missouri campus. The walking route below shows how to get from the hotel to the venue.</p>
+
+        <div class="grid md:grid-cols-2 gap-6 mb-8">
+          <div class="bg-white rounded-lg shadow-sm p-5">
+            <h2 class="text-xl font-semibold text-gray-900 mb-2">Hotel</h2>
+            <p class="text-gray-800 font-medium">Hampton Inn & Suites Columbia at the University of Missouri</p>
+            <p class="text-gray-700">1225 Fellows Pl, Columbia, MO 65201</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=Hampton+Inn+1225+Fellows+Pl+Columbia+MO+65201" target="_blank" rel="noopener" class="mt-2 inline-block text-blue-600 hover:underline">Open in Google Maps</a>
+          </div>
+          <div class="bg-white rounded-lg shadow-sm p-5">
+            <h2 class="text-xl font-semibold text-gray-900 mb-2">Venue</h2>
+            <p class="text-gray-800 font-medium">Strickland Hall (MU Campus)</p>
+            <p class="text-gray-700">805 Rollins St, Columbia, MO 65201</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=Strickland+Hall+805+Rollins+St+Columbia+MO+65201" target="_blank" rel="noopener" class="mt-2 inline-block text-blue-600 hover:underline">Open in Google Maps</a>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-lg shadow-md p-5">
+          <h2 class="text-xl font-semibold text-gray-900 mb-3">Walking Directions (Hotel → Venue)</h2>
+          <p class="text-gray-600 mb-3">Approximately 10–15 minutes on foot depending on the route and crossings.</p>
+          <div class="rounded-md overflow-hidden">
+            <iframe
+              class="map-embed"
+              src="https://www.google.com/maps?f=d&saddr=1225+Fellows+Pl,+Columbia,+MO+65201&daddr=805+Rollins+St,+Columbia,+MO+65201&hl=en&dirflg=w&ie=UTF8&z=15&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              aria-label="Walking directions from Hampton Inn 1225 Fellows Pl to Strickland Hall 805 Rollins St"
+            ></iframe>
+          </div>
+          <p class="text-sm text-gray-600 mt-2">If the map does not load, you can <a class="text-blue-600 hover:underline" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=1225+Fellows+Pl,+Columbia,+MO+65201&destination=805+Rollins+St,+Columbia,+MO+65201&travelmode=walking">open the route in Google Maps</a>.</p>
+        </div>
+
+        <!-- Parking Information -->
+        <div class="bg-white rounded-lg shadow-md p-5 mt-8">
+          <h2 class="text-xl font-semibold text-gray-900 mb-3">Parking</h2>
+          <ul class="list-disc pl-6 text-gray-700 mb-4">
+            <li>Metered parking is available on campus.</li>
+            <li>The closest metered lot to Strickland Hall is <span class="font-medium">CG17</span>, Columbia, MO 65212.</li>
+          </ul>
+          <div class="grid md:grid-cols-2 gap-6 mb-4">
+            <div>
+              <p class="text-gray-800 font-medium">Parking Lot CG17</p>
+              <a href="https://www.google.com/maps/search/?api=1&query=CG17+Columbia+MO+65212" target="_blank" rel="noopener" class="inline-block text-blue-600 hover:underline">Open CG17 in Google Maps</a>
+            </div>
+            <div>
+              <p class="text-gray-800 font-medium">Strickland Hall</p>
+              <a href="https://www.google.com/maps/search/?api=1&query=Strickland+Hall+805+Rollins+St+Columbia+MO+65201" target="_blank" rel="noopener" class="inline-block text-blue-600 hover:underline">Open Strickland Hall in Google Maps</a>
+            </div>
+          </div>
+
+          <h3 class="text-lg font-semibold text-gray-900 mb-2">Walking Directions (CG17 → Strickland Hall)</h3>
+          <div class="rounded-md overflow-hidden">
+            <iframe
+              class="map-embed"
+              src="https://www.google.com/maps?f=d&saddr=CG17,+Columbia,+MO+65212&daddr=805+Rollins+St,+Columbia,+MO+65201&hl=en&dirflg=w&ie=UTF8&z=16&output=embed"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              aria-label="Walking directions from Parking Lot CG17 to Strickland Hall"
+            ></iframe>
+          </div>
+          <p class="text-sm text-gray-600 mt-2">Open this route directly: <a class="text-blue-600 hover:underline" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=CG17+Columbia,+MO+65212&destination=805+Rollins+St,+Columbia,+MO+65201&travelmode=walking">CG17 → Strickland Hall (walking)</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div data-component="footer"></div>
+</body>
+</html>
