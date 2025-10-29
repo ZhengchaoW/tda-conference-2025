@@ -21,6 +21,47 @@
       display: inline-block;
       transition: transform 0.2s ease;
     }
+    /* Selected state for day buttons (fallback if Tailwind aria-variants unavailable) */
+    .day-btn[aria-selected="true"] {
+      background-color: #2563eb; /* blue-600 */
+      color: #ffffff;
+    }
+    /* Mobile single-day calendar styles */
+    @media (max-width: 768px) {
+      /* Limit width overflow on small screens */
+      .calendar {
+        overflow: hidden;
+      }
+      /* Re-template each calendar row to 2 columns: time + one selected day */
+      .calendar .grid.grid-cols-4 {
+        grid-template-columns: 96px 1fr; /* time width + selected day */
+      }
+      /* Show only Saturday (2nd col) */
+      .calendar.mobile-day-sat .grid.grid-cols-4 > :nth-child(3),
+      .calendar.mobile-day-sat .grid.grid-cols-4 > :nth-child(4) {
+        display: none;
+      }
+      .calendar.mobile-day-sat .grid.grid-cols-4 > :nth-child(2) { border-right-width: 0; }
+      /* Show only Sunday (3rd col) */
+      .calendar.mobile-day-sun .grid.grid-cols-4 > :nth-child(2),
+      .calendar.mobile-day-sun .grid.grid-cols-4 > :nth-child(4) {
+        display: none;
+      }
+      .calendar.mobile-day-sun .grid.grid-cols-4 > :nth-child(3) { border-right-width: 0; }
+      /* Show only Monday (4th col) */
+      .calendar.mobile-day-mon .grid.grid-cols-4 > :nth-child(2),
+      .calendar.mobile-day-mon .grid.grid-cols-4 > :nth-child(3) {
+        display: none;
+      }
+      .calendar.mobile-day-mon .grid.grid-cols-4 > :nth-child(4) { border-right-width: 0; }
+      /* Keep borders clean when columns are hidden */
+      .calendar .grid.grid-cols-4 > div {
+        border-right-width: 1px;
+      }
+      .calendar .grid.grid-cols-4 > div:last-child {
+        border-right-width: 0;
+      }
+    }
   </style>
 </head>
 <body class="min-h-screen flex flex-col bg-gray-50">
@@ -31,8 +72,17 @@
       <div class="container mx-auto px-4 max-w-7xl">
         <h1 class="text-3xl font-bold mb-8 text-gray-900">Conference Schedule</h1>
         
+        <!-- Mobile Day Selector -->
+        <div class="md:hidden mb-4">
+          <div class="inline-flex w-full rounded-lg overflow-hidden border border-gray-300 bg-white" role="tablist" aria-label="Choose day">
+            <button type="button" class="day-btn flex-1 px-3 py-2 text-sm font-medium text-gray-700 bg-blue-50 aria-selected:bg-blue-600 aria-selected:text-white" data-day="sat" role="tab" aria-selected="true">Sat, Nov 22</button>
+            <button type="button" class="day-btn flex-1 px-3 py-2 text-sm font-medium text-gray-700 hover:bg-blue-50" data-day="sun" role="tab" aria-selected="false">Sun, Nov 23</button>
+            <button type="button" class="day-btn flex-1 px-3 py-2 text-sm font-medium text-gray-700 hover:bg-blue-50" data-day="mon" role="tab" aria-selected="false">Mon, Nov 24</button>
+          </div>
+        </div>
+
         <!-- Calendar Grid -->
-        <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+        <div id="calendar" class="calendar bg-white shadow-lg rounded-lg overflow-hidden mobile-day-sat">
           <div class="grid grid-cols-4 gap-0 border-b-2 border-gray-300">
             <div class="bg-gray-100 p-4 font-bold text-center border-r border-gray-300">Time</div>
             <div class="bg-gray-100 p-4 font-bold text-center border-r border-gray-300">Saturday, Nov 22</div>
@@ -517,5 +567,47 @@
   </main>
 
   <div data-component="footer"></div>
+  <script>
+    // Mobile day switcher logic (scoped to this page)
+    (function() {
+      const calendar = document.getElementById('calendar');
+      if (!calendar) return;
+      const buttons = Array.from(document.querySelectorAll('.day-btn'));
+
+      // Restore previous selection if available
+      const saved = typeof window !== 'undefined' ? window.sessionStorage.getItem('scheduleSelectedDay') : null;
+      const valid = new Set(['sat','sun','mon']);
+      if (saved && valid.has(saved)) {
+        calendar.classList.remove('mobile-day-sat','mobile-day-sun','mobile-day-mon');
+        calendar.classList.add('mobile-day-' + saved);
+        buttons.forEach(btn => btn.setAttribute('aria-selected', String(btn.dataset.day === saved)));
+      }
+
+      function selectDay(day) {
+        if (!valid.has(day)) return;
+        calendar.classList.remove('mobile-day-sat','mobile-day-sun','mobile-day-mon');
+        calendar.classList.add('mobile-day-' + day);
+        buttons.forEach(btn => btn.setAttribute('aria-selected', String(btn.dataset.day === day)));
+        try { window.sessionStorage.setItem('scheduleSelectedDay', day); } catch (e) {}
+      }
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => selectDay(btn.dataset.day));
+      });
+
+      // If today matches one of the conference days, default to that on first load
+      if (!saved) {
+        const today = new Date();
+        // Conference dates in 2025 (local time)
+        const candidates = [
+          { day: 'sat', month: 10, date: 22 }, // Nov is 10 (0-indexed)
+          { day: 'sun', month: 10, date: 23 },
+          { day: 'mon', month: 10, date: 24 },
+        ];
+        const match = candidates.find(c => today.getMonth() === c.month && today.getDate() === c.date);
+        if (match) selectDay(match.day);
+      }
+    })();
+  </script>
 </body>
 </html>
