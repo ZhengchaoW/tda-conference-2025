@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TDA Conference 2025 — Flyer</title>
+  <style>
+    :root {
+      --ink: #111827; /* gray-900 */
+      --muted: #374151; /* gray-700 */
+      --accent: #2563eb; /* blue-600 */
+      --bg: #ffffff;
+      --hairline: #e5e7eb; /* gray-200 */
+    }
+    @page { size: letter; margin: 0.6in; }
+    @media print { .screen-only { display: none !important; } }
+
+    html, body { height: 100%; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--ink);
+      background: var(--bg);
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .flyer {
+      max-width: 8.5in; /* for screen preview */
+      margin: 0 auto;
+      padding: 0.8in 0.6in; /* overridden by @page when printing */
+      box-sizing: border-box;
+    }
+
+    .header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: center;
+      border-bottom: 2px solid var(--hairline);
+      padding-bottom: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+    .title { font-size: 1.9rem; font-weight: 800; letter-spacing: -0.01em; }
+    .subtitle { font-size: 1rem; color: var(--muted); }
+    .badge { border: 2px solid var(--accent); color: var(--accent); padding: 0.35rem 0.5rem; border-radius: 0.5rem; font-weight: 700; font-size: 0.85rem; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem 1.5rem;
+    }
+
+    .section h2 {
+      font-size: 1.1rem;
+      letter-spacing: 0.01em;
+      margin: 0.75rem 0 0.4rem;
+      border-top: 1px solid var(--hairline);
+      padding-top: 0.6rem;
+    }
+
+    .speakers { display: grid; grid-template-columns: 1fr; gap: 0.5rem; }
+    .speaker { break-inside: avoid; }
+    .speaker .name { font-weight: 700; }
+    .speaker .aff { color: var(--muted); font-size: 0.9rem; }
+    .speaker .talk { font-style: italic; margin-top: 0.1rem; }
+    .note { color: var(--muted); font-size: 0.9rem; }
+
+    .footer {
+      margin-top: 1rem;
+      padding-top: 0.6rem;
+      border-top: 1px solid var(--hairline);
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      font-size: 0.95rem;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Small screens: single column */
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+      .flyer { padding: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="flyer">
+    <header class="header">
+      <div>
+        <div class="title">Conference on Topological Data Analysis</div>
+        <div class="subtitle">Recent Developments and Applications</div>
+        <div class="subtitle" style="margin-top:0.25rem;">November 22–24, 2025 · University of Missouri–Columbia</div>
+      </div>
+      <div class="badge">TDA 2025</div>
+    </header>
+
+    <div class="grid">
+      <!-- Left column: About / Logistics -->
+      <section class="section">
+        <h2>About</h2>
+        <p class="note">A three-day meeting bringing together researchers and students to share advances in theory, algorithms, and applications of Topological Data Analysis.</p>
+        <p class="note">Website: <a href="./index.html">tda-conference-2025</a></p>
+      </section>
+
+      <!-- Right column: Keynote -->
+      <section class="section">
+        <h2>Keynote</h2>
+        <div class="speakers">
+          <div class="speaker">
+            <div class="name">Facundo Mémoli <span class="aff">· Rutgers University</span></div>
+            <div class="talk">The Gromov‑Hausdorff distance between spheres</div>
+            <div class="talk">The G‑Gromov‑Hausdorff distance and Equivariant Topology</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Full width: Invited Speakers -->
+      <section class="section" style="grid-column: 1 / -1;">
+        <h2>Invited Speakers</h2>
+        <div class="speakers">
+          <div class="speaker">
+            <div class="name">Saugata Basu <span class="aff">· Purdue University</span></div>
+            <div class="talk">[Title to be announced]</div>
+          </div>
+          <div class="speaker">
+            <div class="name">Ryu Hayakawa <span class="aff">· Kyoto University</span></div>
+            <div class="talk">Computational complexity of the homology problem with orientable filtration: MA‑completeness</div>
+          </div>
+          <div class="speaker">
+            <div class="name">Vasileios Maroulas <span class="aff">· University of Tennessee Knoxville</span></div>
+            <div class="talk">Simplicial convolutional recurrent neural network</div>
+          </div>
+          <div class="speaker">
+            <div class="name">Erik Amezquita Morataya <span class="aff">· University of Missouri–Columbia</span></div>
+            <div class="talk">Exploring the mathematical shape of plants</div>
+          </div>
+          <div class="speaker">
+            <div class="name">Laxmi Parida <span class="aff">· IBM</span></div>
+            <div class="talk">Harmonic Persistent Homology on genomic data</div>
+          </div>
+          <div class="speaker">
+            <div class="name">Emilie Purvine <span class="aff">· Pacific Northwest National Laboratory</span></div>
+            <div class="talk">A Topological Approach to Fuse Structure and Similarity in Clustering</div>
+          </div>
+          <div class="speaker">
+            <div class="name">Yusu Wang <span class="aff">· University of California San Diego</span></div>
+            <div class="talk">Discrete Morse based Graph Reconstruction: Algorithms and Applications</div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <div class="note">Questions? Email the organizers: Calin Chindris & Zhengchao Wan</div>
+      <div><a href="./index.html">Learn more & schedule →</a></div>
+    </footer>
+
+    <p class="screen-only note" style="margin-top:0.5rem;">Tip: Print this page to save a PDF flyer.</p>
+  </div>
+</body>
+</html>
