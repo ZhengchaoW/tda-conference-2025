@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TDA 2025 — Schedule & 9th Street Restaurants</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #111827;
+      background: #f9fafb;
+    }
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 16px 24px 24px;
+      background: white;
+    }
+    h1, h2, h3 {
+      margin: 0 0 6px;
+      line-height: 1.2;
+    }
+    h1 { font-size: 1.5rem; }
+    h2 { font-size: 1.1rem; margin-top: 10px; }
+    h3 { font-size: 0.95rem; margin-top: 6px; }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid #e5e7eb;
+      padding-bottom: 6px;
+      margin-bottom: 8px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .header small { color: #4b5563; }
+    .qr-box {
+      text-align: right;
+      font-size: 0.7rem;
+      color: #6b7280;
+    }
+    .qr-box img {
+      display: block;
+      width: 96px;
+      height: auto;
+      margin-left: auto;
+      margin-bottom: 2px;
+    }
+
+    .schedule-grid {
+      margin-top: 4px;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      overflow: hidden;
+      font-size: 0.78rem;
+    }
+    .schedule-header {
+      display: grid;
+      grid-template-columns: 80px 1fr 1fr 1fr;
+      background: #f3f4f6;
+      border-bottom: 2px solid #e5e7eb;
+    }
+    .schedule-header div {
+      padding: 6px 8px;
+      font-weight: 600;
+      text-align: center;
+      border-right: 1px solid #e5e7eb;
+    }
+    .schedule-header div:last-child {
+      border-right: none;
+    }
+    .schedule-row {
+      display: grid;
+      grid-template-columns: 80px 1fr 1fr 1fr;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .schedule-row:last-child {
+      border-bottom: none;
+    }
+    .time-cell {
+      padding: 4px 6px;
+      background: #f9fafb;
+      border-right: 1px solid #e5e7eb;
+      font-weight: 600;
+      color: #374151;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .slot {
+      padding: 4px 6px;
+      border-right: 1px solid #e5e7eb;
+    }
+    .slot:last-child {
+      border-right: none;
+    }
+    .desc {
+      color: #111827;
+    }
+    .desc .label {
+      font-weight: 600;
+    }
+    .desc small {
+      display: block;
+      color: #4b5563;
+      font-size: 0.73rem;
+    }
+
+    .legend {
+      font-size: 0.75rem;
+      color: #4b5563;
+      margin-top: 6px;
+    }
+
+    .restaurants {
+      margin-top: 24px;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      overflow: hidden;
+      background: white;
+    }
+    .restaurants-header {
+      padding: 6px 8px;
+      background: #f3f4f6;
+      border-bottom: 1px solid #e5e7eb;
+      font-weight: 600;
+    }
+    .restaurants-body {
+      padding: 4px 8px 6px;
+      background: white;
+    }
+    .restaurants-body p {
+      margin: 0 0 4px;
+      color: #4b5563;
+    }
+    .restaurant {
+      border-top: 1px solid #e5e7eb;
+      padding-top: 3px;
+      margin-top: 3px;
+    }
+    .restaurant:first-of-type {
+      border-top: none;
+      padding-top: 0;
+      margin-top: 0;
+    }
+    .restaurant-name {
+      font-weight: 600;
+    }
+    .tags {
+      font-size: 0.7rem;
+      color: #6b7280;
+    }
+
+    .footer-note {
+      margin-top: 6px;
+      font-size: 0.7rem;
+      color: #6b7280;
+      text-align: right;
+    }
+
+    @media print {
+      body {
+        background: white;
+      }
+      .page {
+        max-width: none;
+        margin: 0;
+        padding: 8mm 10mm;
+      }
+      .schedule-grid {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="header">
+      <div>
+        <h1>TDA Conference 2025 — Handy Sheet</h1>
+        <small>Strickland Hall (Rooms 114 &amp; 117) · Math &amp; Sciences Building 306</small>
+      </div>
+      <div class="qr-box">
+        <img src="schedule-qr.png" alt="QR code linking to full conference schedule" />
+        <small>Scan for full schedule</small>
+      </div>
+    </div>
+
+    <div class="schedule-grid">
+      <div class="schedule-header">
+        <div>Time</div>
+        <div>Saturday, Nov 22</div>
+        <div>Sunday, Nov 23</div>
+        <div>Monday, Nov 24</div>
+      </div>
+
+      <div class="schedule-row">
+        <div class="time-cell">8:30–9:00</div>
+        <div class="slot">
+          <div class="desc">
+            <span class="label">Welcome &amp; Registration</span>
+            <small>Room 114</small>
+          </div>
+        </div>
+        <div class="slot"></div>
+        <div class="slot"></div>
+      </div>
+
+      <div class="schedule-row">
+        <div class="time-cell">9:00–10:00</div>
+        <div class="slot">
+          <div class="desc">
+            <span class="label">Facundo Mémoli</span>
+            <small>Room 114</small>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="desc">
+            <span class="label">Facundo Mémoli</span>
+            <small>Room 114</small>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="desc">
+            <span class="label">Erik Amezquita Morataya</span>
+            <small>Room 114</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="schedule-row">
+        <div class="time-cell">10:00–10:30</div>
+        <div class="slot"><div class="desc"><span class="label">Coffee Break</span></div></div>
+        <div class="slot"><div class="desc"><span class="label">Coffee Break</span></div></div>
+        <div class="slot"><div class="desc"><span class="label">Coffee Break</span></div></div>
+      </div>
+
+      <div class="schedule-row">
+        <div class="time-cell">10:30–11:00</div>
+        <div class="slot">
+          <div class="desc">
+            <span class="label">Yusu Wang</span>
+            <small>10:30–11:30 · Room 114</small>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="desc">
+            <span class="label">Saugata Basu</span>
+            <small>10:30–11:30 · Room 114</small>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="desc">
+            <span class="label">Parallel Talks (Slot 5)</span>
+            <small>Ling Zhou · Hayden Everett · Rooms 114 &amp; 117</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="schedule-row">
+        <div class="time-cell">11:00–11:30</div>
+        <div class="slot"></div>
+        <div class="slot"></div>
+        <div class="slot">
+          <div class="desc">
+            <span class="label">Parallel Talks (Slot 6)</span>
+            <small>Cheng Xin · Layal Bou Hamdan · Rooms 114 &amp; 117</small>
+          </div>
+        </div>
+      </div>
+
+      <div class="schedule-row">
+        <div class="time-cell">11:30–12:00</div>
+        <div class="slot">
+          <div class="desc">
+            <span class="label">Vasileios Maroulas</span>
+            <small>Room 114</small>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="desc">
+            <span class="label">Laxmi Parida</span>
+            <small>Room 114</small>
+          </div>
+        </div>
+        <div class="slot"></div>
+      </div>
+
+      <div class="schedule-row">
+        <div class="time-cell">12:00–14:00</div>
+        <div class="slot"><div class="desc"><span class="label">Lunch Break</span></div></div>
+        <div class="slot"><div class="desc"><span class="label">Lunch Break</span></div></div>
+        <div class="slot"><div class="desc"><span class="label">Closing</span></div></div>
+      </div>
+
+      <div class="schedule-row">
+        <div class="time-cell">14:00–14:30</div>
+        <div class="slot">
+          <div class="desc">
+            <span class="label">Parallel Talks (Slot 1)</span>
+            <small>Benjamin Jones · Minh Quang Le · Rooms 114 &amp; 117</small>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="desc">
+            <span class="label">Emilie Purvine</span>
+            <small>14:00–14:50 · Room 114</small>
+          </div>
+        </div>
+        <div class="slot"></div>
+      </div>
+
+      <div class="schedule-row">
+        <div class="time-cell">14:30–15:00</div>
+        <div class="slot">
+          <div class="desc">
+            <span class="label">Parallel Talks (Slot 2)</span>
+            <small>Manuel M. Cuerno · Mao Li · Rooms 114 &amp; 117</small>
+          </div>
+        </div>
+        <div class="slot"></div>
+        <div class="slot"></div>
+      </div>
+
+      <div class="schedule-row">
+        <div class="time-cell">15:00–15:30</div>
+        <div class="slot"><div class="desc"><span class="label">Coffee Break</span></div></div>
+        <div class="slot">
+          <div class="desc">
+            <span class="label">Ryu Hayakawa</span>
+            <small>Room 114</small>
+          </div>
+        </div>
+        <div class="slot"></div>
+      </div>
+
+      <div class="schedule-row">
+        <div class="time-cell">15:30–16:00</div>
+        <div class="slot">
+          <div class="desc">
+            <span class="label">Parallel Talks (Slot 3)</span>
+            <small>Cagatay Ayhan · Guangyu Meng · Rooms 114 &amp; 117</small>
+          </div>
+        </div>
+        <div class="slot">
+          <div class="desc">
+            <span class="label">Poster Session and Coffee Break</span>
+            <small>15:30–16:30 · Math &amp; Sciences Building 306</small>
+          </div>
+        </div>
+        <div class="slot"></div>
+      </div>
+
+      <div class="schedule-row">
+        <div class="time-cell">16:00–16:30</div>
+        <div class="slot">
+          <div class="desc">
+            <span class="label">Parallel Talks (Slot 4)</span>
+            <small>Wanchen Zhao · Collin Kovacs · Rooms 114 &amp; 117</small>
+          </div>
+        </div>
+        <div class="slot"></div>
+        <div class="slot"></div>
+      </div>
+    </div>
+
+    <div class="restaurants">
+      <div class="restaurants-header">Restaurants in downtown</div>
+      <div class="restaurants-body">
+        <p><em>There are many restaurants near campus on 9th Street in downtown Columbia:</em></p>
+        
+        <p>Kinkao (Thai), Bamboo (Chinese), Hokkaido Ramen (Japanese), Cafe Poland (Polish), 44 Canteen (American), Flat Branch (Pub & Brewery), Uprise Bakery (Bakery & Coffee), Chipotle (Mexican), Bangkok Garden (Thai), Addison's American Grill (American).</p>
+
+        <div class="footer-note">
+          Walk times from campus to downtown 9th Street are about 15–20 minutes.
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
